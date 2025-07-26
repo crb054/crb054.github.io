@@ -1,12 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cali Brewer Portfolio</title>
+  <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-  <h1>Hello, I'm [Your Name]!</h1>
-  <p>Welcome to my portfolio website.</p>
+  <!-- Homepage Section -->
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="videos/homepage-bg.mov" type="video/mp4" />
+    </video>
+    <div class="hero-text">
+      <h1>Hello World,<br>I'm Cali Brewer</h1>
+      <div class="circle-buttons">
+        <a href="#about" class="circle">ABOUT ME</a>
+        <a href="#projects" class="circle">PORTFOLIO</a>
+        <a href="#interests" class="circle">INTERESTS</a>
+        <a href="#contact" class="circle">CONTACT ME</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Me Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I recently graduated from the University of Arkansas with a degree in Computer Science. What interested me the most about my degree was the business side to it, product management. 
+          I love the mix of planning, collaboration, and creative problem-solving, especially the part where you're connecting the dots between technical teams and business goals.
+          Surprisingly, I enjoy meetings because I like hearing different perspectives and figuring out how to turn big ideas into something actionable. 
+          Whether it’s sketching out a feature, thinking through the details, or asking “where do we even start?”, that’s the part that excites me. 
+        </p>
+        <!-- Tab Buttons -->
+        <div class="tab-wrapper">
+          <div class="tabs line-tabs">
+            <button class="tab-button active" data-tab="leadership">★ Leadership</button>
+            <button class="tab-button" data-tab="experience">★ Experience</button>
+            <button class="tab-button" data-tab="education">★ Education</button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <div class="tab-panel active" id="leadership">
+              <ul>
+                <li>
+                  <strong>Society of Women Engineers – Member</strong>
+                  <ul>
+                    <li>Contributed to campus outreach efforts encouraging young women to explore STEM fields.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Japanese Student Association – Event Coordinator</strong>
+                  <ul>
+                    <li>Organized cultural events and led Japanese language exchanges to build community and spark conversations.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Alpha Delta Pi, Delta Delta – Initiated Member</strong>
+                  <ul>
+                    <li>Volunteered for fundraising and community support events, including work with Ronald McDonald House Charities.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-panel" id="experience">
+              <ul>
+                <li>
+                  <strong>ArcBest Technologies – Software Engineering Intern</strong>
+                  <ul>
+                    <li>Built internal logistics tools and collaborated with developers and stakeholders in Agile sprints.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>University of Arkansas – Office Assistant</strong>
+                  <ul>
+                    <li>Managed department communications and organized front desk operations.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-panel" id="education">
+              <ul>
+                <li>
+                  <strong>University of Arkansas – B.S. in Computer Science</strong>
+                  <ul>
+                    <li>Minors: Mathematics, Japanese (Business Orientation)</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <img src="images/grad-pic.JPEG" alt="Graduation photo of Cali Brewer" />
+      </div>
+    </div>
+  </section>
+
+  <!-- tab interaction -->
+  <script>
+    const buttons = document.querySelectorAll('.tab-button');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-tab');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        panels.forEach(panel => panel.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="projects-container">
+      <h2>Some of my Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Travel App Demo</h3>
+          <video autoplay muted loop playsinline>
+            <source src="videos/travelapp-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>A location-based mobile application that streamlines hotel and restaurant recommendations using real-time data. 
+            Built with Kotlin and integrated with Google Places and Geoapify APIs, the app addresses common travel pain points through a user-friendly 
+            interface and responsive design.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>IV Alarm Demo</h3>
+          <video autoplay muted loop playsinline>
+            <source src="videos/ivalarm-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Developed with biomedical engineers, this system helps hospitals prioritize IV alarms based on urgency and location. 
+            The goal was to reduce alert fatigue and streamline clinical workflows through thoughtful design and logic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interests Section -->
+<section id="interests" class="interests-section">
+  <div class="interests-title">
+    <h2>My Interests</h2>
+  </div>
+  <div class="interest-stack">
+    <div class="interest-card">
+      <div class="interest-front">
+        <img src="icons/pm-icon.png" alt="Product Management Icon" class="interest-icon" />
+        <h3>Product Management</h3>
+      </div>
+      <div class="interest-back">
+        <p>I love figuring out what people need, how we’ll build it, and what tradeoffs we’ll have to make. 
+          It has strategy, creativity, and part just making sure everything stays on track. That balance is what keeps me coming back.</p>
+      </div>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-front">
+        <img src="icons/design-icon.png" alt="UI Design Icon" class="interest-icon" />
+        <h3>UI Design</h3>
+      </div>
+      <div class="interest-back">
+        <p>I’m a visual thinker, so I love turning ideas into creative designs. However, design isn’t all about visuals, it’s about functionality as well. 
+          Thanks to my CS background, I’m always thinking about function, flow, and making things feel intuitive and convenient.</p>
+      </div>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-front">
+        <img src="icons/marketing-icon.png" alt="Digital Marketing Icon" class="interest-icon" />
+        <h3>Digital Marketing</h3>
+      </div>
+      <div class="interest-back">
+        <p>Digital marketing is just fun to me. There's so much strategy behind it, especially when it comes to knowing your audience. 
+          You have to understand your audience; it’s not an easy "what would make me buy it" question. It’s about understanding the audience's thoughts and using that to craft a message that connects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <video autoplay muted loop playsinline class="contact-video">
+    <source src="videos/contact-bg.mov" type="video/mp4" />
+  </video>
+  <div class="contact-overlay">
+    <div class="contact-content">
+      <h2>Connect with Me</h2>
+      <div class="contact-icons">
+        <a href="mailto:brewercali17@yahoo.com" target="_blank" aria-label="Email Cali">
+          <img src="icons/icons8-email.png" alt="Email Icon" />
+        </a>
+        <a href="https://www.linkedin.com/in/cali-brewer-2b7261210" target="_blank" aria-label="LinkedIn Profile">
+          <img src="icons/icons8-linkedin.png" alt="LinkedIn Icon" />
+        </a>
+        <a href="https://github.com/crb054" target="_blank" aria-label="GitHub Profile">
+          <img src="icons/icons8-github.png" alt="GitHub Icon" />
+        </a>
+      </div>
+    </div>
+    <p class="icons8-credit">
+      Icons by <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer">Icons8</a>
+    </p>
+  </div>
+</section>
+
 </body>
 </html>
